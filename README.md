@@ -18,6 +18,12 @@ The first 1MB of the flash MMOD is reserved for the bootloader, the next 3MB are
 
 The DFU bootloader is available for 5 seconds after power-on, issuing a DFU command during this period will stop the boot process until the DFU device is detached. If no command is received the boot process will continue and the user gateware will be loaded.
 
+Install [dfu-util](http://dfu-util.sourceforge.net) (Debian/Ubuntu):
+
+```
+$ sudo apt install dfu-util
+```
+
 Update the user gateware on the flash MMOD:
 
 ```
@@ -34,7 +40,7 @@ It is possible to update the bootloader itself using DFU but you shouldn't attem
 
 ### JTAG
 
-These examples assume you're using a "USB Blaster" JTAG cable, see the header pinout below.
+These examples assume you're using a "USB Blaster" JTAG cable, see the header pinout below. You will need to have [openFPGALoader](https://github.com/trabucayre/openFPGALoader) installed.
 
 Program the configuration SRAM:
 
