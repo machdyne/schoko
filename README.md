@@ -21,13 +21,13 @@ The DFU bootloader is available for 5 seconds after power-on, issuing a DFU comm
 Update the user gateware on the flash MMOD:
 
 ```
-dfu-util -a 0 -D image.bit
+$ sudo dfu-util -a 0 -D image.bit
 ```
 
 Detach the DFU device and continue the boot process:
 
 ```
-dfu-util -e
+$ sudo dfu-util -a 0 -e
 ```
 
 It is possible to update the bootloader itself using DFU but you shouldn't attempt this unless you have a JTAG programmer (or another method to program the MMOD) available, in case you need to restore the bootloader.
@@ -56,13 +56,51 @@ Assuming they are installed, you can simply type `make` to build the gateware, w
 
 ## Linux
 
-Copy the files from the images/v1\_hdmi directory to the root directory of a FAT-formated SD card.
+### Prebuilt Images
 
-Schoko ships with LiteX gateware on the user gateware section of the MMOD that is compatible with these images. If you plug a USB-UART into PMODA you should be able to interact with LiteX.
+Copy the files from the images/v1\_hdmi directory to the root directory of a FAT-formated MicroSD card.
 
-Detailed instructions for building custom LiteX gateware and Linux will be added here soon.
+Schoko ships with LiteX gateware on the user gateware section of the MMOD that is compatible with these images. If you plug a USB-UART into PMODA you should be able to interact with LiteX and view the Linux boot messages. After several seconds the Linux penguin should appear on the screen (HDMI) followed by a login prompt.
 
-Note: It should be possible to store the Linux images on the MMOD itself and boot Linux without any SD card but this is not yet supported.
+Note: It should be possible to store the Linux images on the MMOD itself and boot Linux without any MicroSD card but this is not yet supported.
+
+### Building Linux
+
+Detailed instructions for building a customized Linux system will be added here soon.
+
+## LiteX
+
+### Installing LiteX
+
+Please see the [LiteX Quick start guide](https://github.com/enjoy-digital/litex#quick-start-guide) for details on installing LiteX.
+
+### Building Custom Gateware
+
+Replace litex-boards with our fork:
+
+```
+$ mv litex-boards litex-boards-official
+$ git clone https://github.com/machdyne/litex-boards
+```
+
+Build the LiteX gateware:
+
+```
+$ cd litex-boards/litex_boards/targets
+$ python3 ld_schoko.py --cpu-type=vexriscv --cpu-variant=lite --sys-clk-freq 40000000 --uart-baudrate 1000000 --uart-name serial --build
+```
+
+Program the LiteX gateware to SRAM over JTAG:
+
+```
+$ python3 ld_schoko.py --load
+```
+
+Or program the LiteX gateware to flash over DFU:
+
+```
+$ sudo dfu-util -a 0 -D build/ld_schoko/gateware/ld_schoko.bit
+```
 
 ## JTAG Header
 
@@ -82,3 +120,13 @@ The JTAG header can be used to program the FPGA SRAM as well as the MMOD flash m
 | 4 | TMS |
 | 5 | 3V3 |
 | 6 | GND |
+
+## Board Revisions
+
+| Revision | Notes |
+| -------- | ----- |
+| V0 | Internal prototype |
+| V1 | Initial production boards |
+| V1A | Identical to V1 except for minor aesthetic changes on the silkscreen |
+| V2 | Adds SD-mode support to MicroSD slot; not yet available |
+
