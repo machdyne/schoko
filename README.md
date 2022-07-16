@@ -78,34 +78,27 @@ Detailed instructions for building a customized Linux system will be added here 
 
 ### Installing LiteX
 
-Please see the [LiteX Quick start guide](https://github.com/enjoy-digital/litex#quick-start-guide) for details on installing LiteX.
+Please see the [LiteX quick start guide](https://github.com/enjoy-digital/litex#quick-start-guide) for details on installing LiteX.
 
 ### Building Custom Gateware
-
-Replace litex-boards with our fork:
-
-```
-$ mv litex-boards litex-boards-official
-$ git clone https://github.com/machdyne/litex-boards
-```
 
 Build the LiteX gateware:
 
 ```
 $ cd litex-boards/litex_boards/targets
-$ python3 ld_schoko.py --cpu-type=vexriscv --cpu-variant=lite --sys-clk-freq 40000000 --uart-baudrate 1000000 --uart-name serial --build
+$ python3 machdyne_schoko.py --cpu-type=vexriscv --cpu-variant=lite --sys-clk-freq 40000000 --uart-baudrate 1000000 --uart-name serial --build
 ```
 
 Program the LiteX gateware to SRAM over JTAG:
 
 ```
-$ python3 ld_schoko.py --load
+$ python3 machdyne_schoko.py --load
 ```
 
 Or program the LiteX gateware to flash over DFU:
 
 ```
-$ sudo dfu-util -a 0 -D build/ld_schoko/gateware/ld_schoko.bit
+$ sudo dfu-util -a 0 -D build/machdyne_schoko/gateware/machdyne_schoko.bit
 ```
 
 ## JTAG Header
