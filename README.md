@@ -82,6 +82,13 @@ Please see the [LiteX quick start guide](https://github.com/enjoy-digital/litex#
 
 ### Building Custom Gateware
 
+Schoko isn't in the official LiteX repo yet so you will need to temporarily replace the litex-boards directory with our fork:
+
+```
+$ mv litex-boards litex-boards-official
+$ git clone https://github.com/machdyne/litex-boards
+```
+
 Build the LiteX gateware:
 
 ```
