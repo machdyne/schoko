@@ -72,13 +72,44 @@ Note: It should be possible to store the Linux images on the MMOD itself and boo
 
 ### Building Linux
 
-Detailed instructions for building a customized Linux system will be added here soon.
+Please follow the setup instructions in the [linux-on-litex-vexriscv](https://github.com/litex-hub/linux-on-litex-vexriscv) repo and then:
+
+1. Build the Linux-capable gateware:
+
+```
+$ cd linux-on-litex-vexriscv
+$ make.py --board schoko --uart-baudrate 1000000 --build
+$ ls build/schoko
+```
+
+2. Write the gateware to the MMOD using USB DFU:
+
+```
+$ sudo dfu-util -a 0 -D build/schoko/gateware/schoko.bit
+```
+
+3. Copy the device tree binary `build/schoko/schoko.dtb` to a MicroSD card.
+
+4. Build the Linux kernel and root filesystem:
+
+```
+$ cd ..
+$ git clone http://github.com/buildroot/buildroot
+$ cd buildroot
+$ make BR2_EXTERNAL=../linux-on-litex-vexriscv/buildroot/ litex_vexriscv_usbhost_defconfig
+$ make
+$ ls output/images
+```
+
+5. Copy the files from output/images to a MicroSD card.
+
+6. Power-cycle Schoko and if a USB-UART PMOD is attached to PMODA you should see the LiteX memory test and then the Linux boot messages. After Linux has finished booting you should see a login prompt on the serial console and the HDMI display.
 
 ## LiteX
 
 ### Installing LiteX
 
-Please see the [LiteX quick start guide](https://github.com/enjoy-digital/litex#quick-start-guide) for details on installing LiteX.
+If you haven't yet installed LiteX please see the [LiteX quick start guide](https://github.com/enjoy-digital/litex#quick-start-guide) for details on installing LiteX.
 
 ### Building Custom Gateware
 
