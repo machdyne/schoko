@@ -78,7 +78,7 @@ Please follow the setup instructions in the [linux-on-litex-vexriscv](https://gi
 
 ```
 $ cd linux-on-litex-vexriscv
-$ make.py --board schoko --uart-baudrate 1000000 --build
+$ ./make.py --board schoko --uart-baudrate 1000000 --build
 $ ls build/schoko
 ```
 
