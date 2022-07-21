@@ -117,13 +117,13 @@ Build the LiteX gateware:
 
 ```
 $ cd litex-boards/litex_boards/targets
-$ python3 machdyne_schoko.py --cpu-type=vexriscv --cpu-variant=lite --sys-clk-freq 40000000 --uart-baudrate 1000000 --uart-name serial --build
+$ ./machdyne_schoko.py --cpu-type=vexriscv --cpu-variant=lite --sys-clk-freq 40000000 --uart-baudrate 1000000 --uart-name serial --build
 ```
 
 Program the LiteX gateware to SRAM over JTAG:
 
 ```
-$ python3 machdyne_schoko.py --load
+$ ./machdyne_schoko.py --load
 ```
 
 Or program the LiteX gateware to flash over DFU:
