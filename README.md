@@ -64,7 +64,7 @@ Assuming they are installed, you can simply type `make` to build the gateware, w
 
 ### Prebuilt Images
 
-Copy the files from the images/common and images/v1\_hdmi directories to the root directory of a FAT-formated MicroSD card.
+Copy the files from the `images/common` and `images/v1\_hdmi` directories to the root directory of a FAT-formated MicroSD card.
 
 Schoko ships with LiteX gateware on the user gateware section of the MMOD that is compatible with these images. If you plug a USB-UART into PMODA you should be able to interact with LiteX and view the Linux boot messages. After several seconds the Linux penguin should appear on the screen (HDMI) followed by a login prompt.
 
@@ -107,20 +107,11 @@ $ make
 $ ls output/images
 ```
 
-5. Copy the files from output/images to the MicroSD card.
+5. Copy the `Image` and `rootfs.cpio` files from output/images to the MicroSD card.
 
 6. Copy the OpenSBI binary (included in this repo as schoko/images/common/opensbi.bin) to the MicroSD card. Alternatively, you can build this binary by following [these instructions](https://github.com/litex-hub/linux-on-litex-vexriscv#-generating-the-opensbi-binary-optional).
 
-7. Create a file on the MicroSD card named boot.json containing:
-
-```
-{
-	"Image":       "0x40000000",
-	"schoko.dtb":  "0x40ef0000",
-	"rootfs.cpio": "0x41000000",
-	"opensbi.bin": "0x40f00000"
-}
-```
+7. Copy `schoko/images/common/boot.json` to the MicroSD card.
 
 8. Power-cycle Schoko and if a USB-UART PMOD is attached to PMODA you should see the LiteX memory test and then the Linux boot messages. After Linux has finished booting you should see a login prompt on the serial console and the HDMI display.
 
