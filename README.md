@@ -64,7 +64,7 @@ Assuming they are installed, you can simply type `make` to build the gateware, w
 
 ### Prebuilt Images
 
-Copy the files from the `images/linux` and `images/v1_hdmi` directories to the root directory of a FAT-formatted MicroSD card.
+Copy the files from the `images/linux` directory to the root directory of a FAT-formatted MicroSD card.
 
 Schoko ships with LiteX gateware on the user gateware section of the MMOD that is compatible with these images. If you plug a USB-UART into PMODA you should be able to interact with LiteX and view the Linux boot messages. After several seconds the Linux penguin should appear on the screen (HDMI) followed by a login prompt.
 
