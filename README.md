@@ -2,7 +2,7 @@
 
 Schoko is an FPGA computer designed by Lone Dynamics Corporation.
 
-![Schoko Computer](https://github.com/machdyne/schoko/blob/dfc850e8b4c5a64a58aa2cf89866d35570c1b230/schoko.png)
+![Schoko Computer](https://github.com/machdyne/schoko/blob/ec24b2a678daf4e97074303b68460d9f22f655af/schoko.png)
 
 This repo contains schematics, pinouts, a 3D-printable case, example gateware and documentation.
 
