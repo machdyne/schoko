@@ -51,7 +51,7 @@ openFPGALoader -c usb-blaster image.bit
 Program the flash MMOD:
 
 ```
-openFPGALoader -f -c usb-blaster bootloader.bit
+openFPGALoader -f -c usb-blaster images/bootloader/tinydfu_schoko.bit
 ```
 
 ## Blinky 
