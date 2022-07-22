@@ -101,9 +101,20 @@ $ make
 $ ls output/images
 ```
 
-5. Copy the files from output/images to a MicroSD card.
+5. Copy the files from output/images to the MicroSD card.
 
-6. Power-cycle Schoko and if a USB-UART PMOD is attached to PMODA you should see the LiteX memory test and then the Linux boot messages. After Linux has finished booting you should see a login prompt on the serial console and the HDMI display.
+6. Create a file on the MicroSD card named boot.json containing:
+
+```
+{
+	"Image":       "0x40000000",
+	"schoko.dtb":  "0x40ef0000",
+	"rootfs.cpio": "0x41000000",
+	"opensbi.bin": "0x40f00000"
+}
+```
+
+7. Power-cycle Schoko and if a USB-UART PMOD is attached to PMODA you should see the LiteX memory test and then the Linux boot messages. After Linux has finished booting you should see a login prompt on the serial console and the HDMI display.
 
 ## LiteX
 
