@@ -10,7 +10,7 @@ Find more information on the [Schoko product page](https://machdyne.com/product/
 
 ## Programming Schoko
 
-Schoko has a JTAG interface and ships with a [DFU bootloader](https://github.com/machdyne/tinydfu-bootloader) that allows the flash MMOD to be programmed over the USB-C port.
+Schoko has a JTAG interface and ships with a [DFU bootloader](https://github.com/machdyne/tinydfu-bootloader) that allows the flash [MMOD](https://machdyne.com/product/mmod) to be programmed over the USB-C port.
 
 The first 1MB of the flash MMOD is reserved for the bootloader, the next 3MB are reserved for user gateware and the remaining space is available for user data.
 
