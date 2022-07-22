@@ -94,7 +94,7 @@ $ ls build/schoko
 $ sudo dfu-util -a 0 -D build/schoko/gateware/schoko.bit
 ```
 
-3. Copy the device tree binary `build/schoko/schoko.dtb` to a MicroSD card.
+3. Copy the device tree binary `build/schoko/schoko.dtb` to a FAT-formatted MicroSD card.
 
 4. Build the Linux kernel and root filesystem:
 
