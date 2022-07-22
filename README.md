@@ -109,7 +109,7 @@ $ ls output/images
 
 5. Copy the `Image` and `rootfs.cpio` files from output/images to the MicroSD card.
 
-6. Copy the OpenSBI binary (included in this repo as schoko/images/linux/opensbi.bin) to the MicroSD card. Alternatively, you can build this binary by following [these instructions](https://github.com/litex-hub/linux-on-litex-vexriscv#-generating-the-opensbi-binary-optional).
+6. Copy the OpenSBI binary (included in this repo as `schoko/images/linux/opensbi.bin`) to the MicroSD card. Alternatively, you can build this binary by following [these instructions](https://github.com/litex-hub/linux-on-litex-vexriscv#-generating-the-opensbi-binary-optional).
 
 7. Copy `schoko/images/linux/boot.json` to the MicroSD card.
 
