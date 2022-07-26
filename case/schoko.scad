@@ -7,6 +7,7 @@
 $fn = 100;
 
 mach_edition = false;
+schoko_text = true;
 
 board_width = 50;
 board_thickness = 1.5;
@@ -74,8 +75,8 @@ module ldx_case_top() {
 			translate([1.5,10,-2])
 				roundedcube(board_width-8,board_length-63.7,15,3);
 
-			translate([1.5,2,-2])
-				roundedcube(board_width-11.5,board_length-4,15,5);
+			translate([10.5,2,-2])
+				roundedcube(board_width-21.5,board_length-4,15,5);
 
 			// vent
 			translate([-1,board_length-15,10])
@@ -111,10 +112,10 @@ module ldx_case_top() {
 			translate([30,26.23-(31/2),-2]) cube([30,31,12.5+2]);
 
 			// DDMI
-			translate([30,60.8-(15.8/2),-2]) cube([30,15.8,5.5+2]);
+			translate([30,60.8-(16/2),-2]) cube([30,15.5,6+2]);
 
 			// USBC
-			translate([30,84.3-(9.5/2),-2]) cube([30,9.5,3.5+1.75]);
+			translate([30,84.3-(10.5/2),-2]) cube([30,10,3.5+1.75]);
 
 			// USBA HOST
 			translate([25-(14.5/2),-2,-2]) cube([14.5,30,7.5+2]);
@@ -127,10 +128,10 @@ module ldx_case_top() {
 			translate([17,74,-2]) cube([15,10,2+2]);
 
 			// PMODA
-			translate([0,45.095-(13.05/2),0]) cube([5,16,10],center=true);
+			translate([0,45.095-(13.05/2),0]) cube([25,16,10],center=true);
 
 			// PMODB
-			translate([0,67.955-(13.05/2),0]) cube([5,16,10], center=true);
+			translate([0,67.955-(13.05/2),0]) cube([25,16,10], center=true);
 		
 			// bolt holes
 			translate([5, 5, -21]) cylinder(d=3.5, h=40);
@@ -145,11 +146,13 @@ module ldx_case_top() {
 			translate([45, 95, 14]) cylinder(d=5, h=4);
 
 			// schoko text
-			rotate(270)
-				translate([-40,25-3,14])
-					linear_extrude(5)
-						text("S C H O K O", size=6, halign="center",
-							font="Ubuntu:style=Bold");
+			if (schoko_text) {
+				rotate(270)
+					translate([-40,25-3,14])
+						linear_extrude(5)
+							text("S C H O K O", size=6, halign="center",
+								font="Ubuntu:style=Bold");
+			}
 
 		}	
 	
