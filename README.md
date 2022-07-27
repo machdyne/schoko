@@ -103,6 +103,17 @@ $ cd ..
 $ git clone http://github.com/buildroot/buildroot
 $ cd buildroot
 $ make BR2_EXTERNAL=../linux-on-litex-vexriscv/buildroot/ litex_vexriscv_usbhost_defconfig
+```
+
+Optionally customize the kernel and buildroot packages:
+
+```
+$ make menuconfig
+```
+
+Build the kernel and rootfs:
+
+```
 $ make
 $ ls output/images
 ```
