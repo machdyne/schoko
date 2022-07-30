@@ -144,7 +144,7 @@ $ ./machdyne_schoko.py --cpu-type=vexriscv --cpu-variant=lite --sys-clk-freq 400
 Program the LiteX gateware to SRAM over JTAG:
 
 ```
-$ ./machdyne_schoko.py --load
+$ ./machdyne_schoko.py --cable usb-blaster --load
 ```
 
 Or program the LiteX gateware to flash over DFU:
