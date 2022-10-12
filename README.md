@@ -179,5 +179,4 @@ The JTAG header can be used to program the FPGA SRAM as well as the MMOD flash m
 | V0 | Internal prototype |
 | V1 | Initial production boards |
 | V1A | Identical to V1 except for minor aesthetic changes on the silkscreen |
-| V2 | Adds SD-mode support to MicroSD slot; not yet available |
 
