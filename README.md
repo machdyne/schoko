@@ -181,4 +181,15 @@ The JTAG header can be used to program the FPGA SRAM as well as the MMOD flash m
 | V0 | Internal prototype |
 | V1 | Initial production boards |
 | V1A | Identical to V1 except for minor aesthetic changes on the silkscreen |
+| V2 | Work-in-progress; adds SD-mode for MicroSD card |
+
+## License
+
+The contents of this repo are released under the [Lone Dynamics Open License](LICENSE.md) with the following exceptions:
+
+- The KiCad design files contain parts of the [kicad-pmod](https://github.com/mithro/kicad-pmod) library which is released under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
+
+- The KiCad design files may contain symbols and footprints released under other licenses; please contact us if we've failed to give proper attribution.
+
+Note: You can use these designs for commercial purposes but we ask that instead of producing exact clones, that you either replace our trademarks and logos with your own or add your own next to ours.
 
